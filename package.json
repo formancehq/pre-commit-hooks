@@ -1,0 +1,16 @@
+{
+  "name": "pre-commit-hooks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/formancehq/pre-commit-hooks",
+  "author": "Geoffrey Ragot <geoffrey.ragot@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "commitlint": "./node_modules/@commitlint/cli/cli.js",
+    "commitlint-travis": "./node_modules/@commitlint/travis-cli/cli.js"
+  },
+  "dependencies": {
+    "@commitlint/cli": "17.1.2",
+    "@commitlint/travis-cli": "17.1.2"
+  }
+}

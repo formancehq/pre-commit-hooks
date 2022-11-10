@@ -1,13 +1,48 @@
 ---
 - id: gofmt
   name: go-fmt
-  entry: gofmt
-  description: "Runs `gofmt`, requires golang"
+  entry: go fmt ./...
+  description: "Runs `go fmt`, requires golang"
   language: system
   files: '\.go$'
+  require_serial: true
+  pass_filenames: false
 - id: goimports
   name: goimports
-  entry: goimports -w ./cmd/
+  entry: goimports -w
   files: '\.go$'
   description: "Runs `goimports`, requires golang"
   language: system
+  require_serial: true
+- id: golangci-lint
+  name: golangci-lint
+  entry: golangci-lint -v run --fix
+  language: system
+  files: '\.go$'
+  description: "Runs `golangci-lint`, requires golangci-lint"
+  require_serial: true
+  pass_filenames: false
+- id: gotests
+  name: gotests
+  entry: go test ./...
+  language: system
+  files: '\.go$'
+  pass_filenames: false
+  description: "Runs `go test`, requires golang"
+  require_serial: true
+- id: gomodtidy
+  name: gomodtidy
+  entry: go mod tidy
+  language: system
+  pass_filenames: false
+  files: '\.go$'
+  description: "Runs `go mod tidy`, requires golang"
+  require_serial: true
+- id: commitlint
+  name: commitlint
+  description: Commitlint hook
+  language: node
+  entry: commitlint --edit
+  pass_filenames: false
+  always_run: true
+  additional_dependencies: ['@commitlint/config-conventional']
