@@ -1,0 +1,13 @@
+---
+- id: gofmt
+  name: go-fmt
+  entry: gofmt
+  description: "Runs `gofmt`, requires golang"
+  language: system
+  files: '\.go$'
+- id: goimports
+  name: goimports
+  entry: goimports -w ./cmd/
+  files: '\.go$'
+  description: "Runs `goimports`, requires golang"
+  language: system
