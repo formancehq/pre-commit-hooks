@@ -38,6 +38,14 @@
   files: '\.go$'
   description: "Runs `go mod tidy`, requires golang"
   require_serial: true
+- id: gogenerate
+  name: gogenerate
+  entry: go generate
+  language: system
+  pass_filenames: false
+  files: '\.go$'
+  description: "Runs `go generate`, requires golang"
+  require_serial: true
 - id: commitlint
   name: commitlint
   description: Commitlint hook
